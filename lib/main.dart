@@ -56,7 +56,7 @@ class ConsentScreen extends StatelessWidget {
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(color: Colors.blue[50], borderRadius: BorderRadius.circular(12)),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text('Prominent Disclosure (Required by Google Play):', style: TextStyle(fontWeight: FontWeight.bold)),
+              Text('Prominent Disclosure (Required by 【entity-Google Play¦canonical_name=Google Play】):', style: TextStyle(fontWeight: FontWeight.bold)),
               SizedBox(height: 8),
               Text('CallGuard needs access to your call history (READ_CALL_LOG) to identify potential spam calls and show your call history.'),
               SizedBox(height: 8),
@@ -75,7 +75,7 @@ class ConsentScreen extends StatelessWidget {
             },
             child: Text('I Understand & Consent (POPIA Sec 11)'),
           ),
-          TextButton(onPressed: (){}, child: Text('View Privacy Policy')),
+          TextButton(onPressed: (){}, child: Text('View Privacy Policy: rstudiosonline-bit.github.io/callguard/privacy.html')),
         ]),
       ),
     );
