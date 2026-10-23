@@ -1,7 +1,7 @@
-name: Build AAB
+name: Build All Phones
 on: [push, workflow_dispatch]
 jobs:
-  build:
+  android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -12,20 +12,21 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.0'
-      - run: flutter create . --platforms=android,web --project-name callguard_pro
+      - run: flutter create . --platforms=android,web,ios --project-name callguard_pro
       - run: flutter pub get
       - run: flutter build appbundle --release
       - run: flutter build apk --release
-      - run: flutter build web --release
+      - run: flutter build web --release --base-href /callguard/
       - uses: actions/upload-artifact@v4
         with:
-          name: app-release-aab
+          name: android-aab-for-playstore
           path: build/app/outputs/bundle/release/app-release.aab
       - uses: actions/upload-artifact@v4
         with:
-          name: app-release-apk
+          name: android-apk-for-testing
           path: build/app/outputs/flutter-apk/app-release.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: web-version
+          name: web-pwa-for-all-phones
           path: build/web
+          
